@@ -14,6 +14,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment.Companion.Center
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -54,7 +55,7 @@ fun ArticlesListView(
         items(articles) { articleUiState ->
             when (articleUiState) {
                 is ArticleUiState.Loading -> {
-                    Box(Modifier.fillMaxWidth()) {
+                    Box(Modifier.fillMaxWidth(), contentAlignment = Center) {
                         CircularProgressIndicator()
                     }
                 }

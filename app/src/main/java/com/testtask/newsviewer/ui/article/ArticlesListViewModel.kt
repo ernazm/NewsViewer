@@ -24,12 +24,6 @@ class ArticlesListViewModel @Inject constructor(
         // TODO track or handle article click if needed
     }
 
-    init {
-        viewModelScope.launch {
-            refresh()
-        }
-    }
-
     fun refresh() {
         viewModelScope.launch {
             fetchArticles( listOf(Source(id = "bbc-news", name = "BBC News"))) // TODO get from repository or args
