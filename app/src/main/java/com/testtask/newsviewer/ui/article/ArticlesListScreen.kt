@@ -60,7 +60,7 @@ fun ArticlesListView(
                     }
                 }
 
-                else -> {
+                is Item -> {
                     ArticleListItem(
                         article = articleUiState,
                         modifier = Modifier.clickable {
@@ -74,7 +74,7 @@ fun ArticlesListView(
 }
 
 @Composable
-fun ArticleListItem(modifier: Modifier = Modifier, article: ArticleUiState) = Column(modifier.padding(16.dp)) {
+fun ArticleListItem(modifier: Modifier = Modifier, article: Item) = Column(modifier.padding(16.dp)) {
     Text(text = article.title)
     HorizontalDivider()
 }

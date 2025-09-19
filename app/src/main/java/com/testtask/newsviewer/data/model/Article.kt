@@ -3,7 +3,7 @@ package com.testtask.newsviewer.data.model
 data class Article(
     val id: Long = nextId(),
     val source: Source? = null,
-    val author: String = "",
+    val author: String? = null,
     val title: String = "",
     val description: String = "",
     val url: String = "",

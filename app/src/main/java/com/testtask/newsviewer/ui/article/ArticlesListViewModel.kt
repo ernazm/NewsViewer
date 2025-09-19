@@ -26,7 +26,7 @@ class ArticlesListViewModel @Inject constructor(
 
     fun refresh() {
         viewModelScope.launch {
-            fetchArticles( listOf(Source(id = "bbc-news", name = "BBC News"))) // TODO get from repository or args
+            fetchArticles(listOf(Source(id = "bbc-news", name = "BBC News"))) // TODO get from repository or args
         }
     }
 
@@ -42,17 +42,13 @@ class ArticlesListViewModel @Inject constructor(
         }
     }
 
-    sealed class ArticleUiState(
-        open val title: String = "",
-        open val imageUrl: String? = null,
-        open val article: Article? = null,
-    ) {
+    sealed interface ArticleUiState {
         data class Item(
-            override val title: String = "",
-            override val imageUrl: String? = null,
-            override val article: Article? = null,
-        ) : ArticleUiState(title, imageUrl, article)
+            val title: String = "",
+            val imageUrl: String? = null,
+            val article: Article? = null,
+        ) : ArticleUiState
 
-        data object Loading : ArticleUiState()
+        data object Loading : ArticleUiState
     }
 }
